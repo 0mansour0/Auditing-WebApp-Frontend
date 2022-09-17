@@ -3,26 +3,36 @@
         <pm-search (listOfActions)="onClickResult($event)"></pm-search>
     </div>
     <div class="main-page">
-        <div class="table-responsive">
-            <pagination-controls (pageChange)="page = $event" class="d-flex justify-content-center"></pagination-controls>
-            <table class="table table-striped table-bordered">
-                <thead class="bold">
-                    <tr>
-                        <th>Date and Time</th>
-                        <th>Action En</th>
-                        <th>Action Ar</th>
-                        <th>User</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let action of listOfActions | paginate: {itemsPerPage:7 ,currentPage:page};">
-                        <td>{{action.time | date :'short'}}</td>
-                        <td>{{action.descriptionEn}}</td>
-                        <td dir="rtl">{{action.descriptionAr}}</td>
-                        <td>{{action.user_email.userEmail}}</td>
-                    </tr>
-                </tbody>
-              </table>
+        <div>
+            <p class="row">Language : EN &nbsp;&nbsp; AR</p>
+            <label class="switch">
+                <input type="checkbox" [(ngModel)]="lang">
+                <span class="slider"></span>
+              </label>
+        </div>
+        <pagination-controls (pageChange)="page = $event" class="d-flex justify-content-center"></pagination-controls>
+        <div class="table-responsive row" *ngFor="let action of listOfActions | paginate: {itemsPerPage:7 ,currentPage:page};">
+            <div class="col" style="margin-left: 70px; left: 25px; margin-top: 30px;">
+                <p><b>{{action.time | date :'short'}}</b></p>
+            </div>
+              <div class="card row " style="margin-right: 10px; right: 150px;">
+                <div class="row">
+                    <div class="card-body row">
+                        <div class="col-1">
+                        <img class="img-class" src="./../../assets/{{action.user_email.userPhoto}}.jpg">
+                        </div>
+                        <div class="col-3" style="margin-left: 20px;">
+                            <p class="mb-1"><b>{{action.user_email.userName}}</b></p>
+                            <p>{{action.user_email.userTitle}}</p>
+                        </div>
+                        <div class="col">
+                            <p *ngIf="!lang">{{action.descriptionEn}}</p>
+                            <p dir="rtl"*ngIf="lang">{{action.descriptionAr}}</p>
+                            <footer class="blockquote-footer">{{action.action_type.actionTypeCode}}</footer>
+                        </div>
+                    </div>
+                </div>
+              </div>
         </div>
     </div>
 </div>

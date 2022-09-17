@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 
 @Component({
     selector : 'pm-main',
-    templateUrl : './page.component copy.html',
+    templateUrl : './page.component.html',
     styleUrls : ['page.component.css']
 })
 

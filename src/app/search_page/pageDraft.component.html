@@ -1,0 +1,28 @@
+<div class="container">
+    <div>
+        <pm-search (listOfActions)="onClickResult($event)"></pm-search>
+    </div>
+    <div class="main-page">
+        <div class="table-responsive">
+            <pagination-controls (pageChange)="page = $event" class="d-flex justify-content-center"></pagination-controls>
+            <table class="table table-striped table-bordered">
+                <thead class="bold">
+                    <tr>
+                        <th>Date and Time</th>
+                        <th>Action En</th>
+                        <th>Action Ar</th>
+                        <th>User</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let action of listOfActions | paginate: {itemsPerPage:7 ,currentPage:page};">
+                        <td>{{action.time | date :'short'}}</td>
+                        <td>{{action.descriptionEn}}</td>
+                        <td dir="rtl">{{action.descriptionAr}}</td>
+                        <td>{{action.user_email.userEmail}}</td>
+                    </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
