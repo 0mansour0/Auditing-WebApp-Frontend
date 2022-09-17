@@ -1,0 +1,13 @@
+div.row {
+    position: relative;
+    top: 20px;
+  }
+div.row-2 {
+    position: relative;
+    top: 20px;
+}
+div.search-result {
+    position: relative;
+    left: 1150px;
+    top: 80px;
+}

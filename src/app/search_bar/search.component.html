@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="search-bar">
+        <div class="row" style="margin-left: 100px;">
+            <div class="col-md-4">
+                <div class="col-md-2" style="width: 110px;">User</div>
+                <input type="email" placeholder="e.g. user@gmail.com" [(ngModel)]="user"/>
+            </div>
+            <div class="col-md-4">
+                <div class="col-md-2" style="width: 110px;">Business Entity</div>
+                <input type="text" placeholder="e.g. My BE" [(ngModel)]="be"/>
+            </div>
+            <div class="col-md-4">
+                <div class="col-md-2" style="width: 110px;">Application</div>
+                <select name="applicationName" id="applicationName" style="width: 190px;height: 30px;" [(ngModel)]="application">
+                    <option value="" >--select--</option>
+                    <option *ngFor="let appName of lists.applications" value={{appName}}>{{appName}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row-2" style="margin-left: 110px;">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="col-md-2" style="width: 110px;">Action</div>
+                    <select name="action" id="action" style="width: 190px;height: 30px;" [(ngModel)]="action">
+                        <option value="" >--select--</option>
+                        <option *ngFor="let actionName of lists.actions" value={{actionName}}>{{actionName}}</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-md-2" style="width: 110px;">Parameter</div>
+                    <select name="parameter" id="parameter" style="width: 190px;height: 30px;" [(ngModel)]="paramType">
+                        <option value="" >--select--</option>
+                        <option *ngFor="let param of lists.params" value={{param}} [value]="param">{{param}}</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-md-2" style="width: 120px;">Parameter Value</div>
+                    <input type="text" placeholder="e.g. Ali" [(ngModel)]="paramValue"/>
+                </div>
+            </div>
+        </div>
+            <div class="search-result col-1">
+                <button class="btn btn-primary btn-lg" (click)="search()">Search</button>
+            </div>
+    </div>
+    <div>
+        
+    </div>
+</div>

@@ -10,6 +10,7 @@
       "sourceRoot": "src",
       "prefix": "pm",
       "architect": {
+        
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
@@ -62,6 +63,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "fawryFront:build",
+            "proxyConfig": "./proxy.conf.json"
+            },
           "configurations": {
             "production": {
               "browserTarget": "fawryFront:build:production"
@@ -97,5 +102,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "32831a9c-c1e2-4e17-9208-104a7625ad63"
   }
 }
